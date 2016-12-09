@@ -1,0 +1,68 @@
+<html ng-app="flapperNews">
+  <head>
+    <title>Flapper News</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" ng-controller="NavCtrl">
+       <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Home</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
+          <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
+          <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
+          <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="main-content">
+          <ui-view></ui-view>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="well">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p>Copyright &copy; 2016 <a href="https://github.com/MAshrafM">MAshraf</a>. All rights reserved.</p>
+          </div>
+          <div class="col-md-6">
+            <p><a href="https://thinkster.io/tutorials/mean-stack">Thinkster</a> Build Modern Web Apps with MEAN</p>
+          </div>
+        </div>
+        
+      </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
+    <script src="/javascripts/angularApp.js"></script>
+    <!-- routes -->
+    <script src="/javascripts/routes.js"></script>
+    <!-- services -->
+    <script src="/javascripts/services/posts-factory.js"></script>
+    <script src="/javascripts/services/auth-factory.js"></script>
+    <!-- controller -->
+    <script src="/javascripts/controllers/main-controller.js"></script>
+    <script src="/javascripts/controllers/posts-controller.js"></script>
+    <script src="/javascripts/controllers/users-controller.js"></script>
+    <script src="/javascripts/controllers/nav-controller.js"></script>
+  </body>
+</html>
